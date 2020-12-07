@@ -1,0 +1,14 @@
+version: "3.2"
+services:
+  auth-app:
+    container_name: auth-app
+    image: auth-app
+    build:
+      context: '.'
+    env_file:
+      - .env
+    ports:
+      - ${PORT}:${PORT}
+    volumes:
+      - ./:/var/app
+      - ./.docker/start.sh:/usr/local/bin/start.sh
